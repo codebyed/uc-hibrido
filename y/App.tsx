@@ -24,7 +24,6 @@ import HiddenPostRow from "./src/components/hiddenPostRow/hiddenPostRow";
 import TabBar, { TabKey } from "./src/components/tabBar/tabBar";
 import PostDetalhes from "./src/components/postDetalhes/postDetalhes";
 import OcultarModal from "./src/components/ocultarModal/ocultarModal";
-import AuthScreen from "./src/components/auth/AuthScreen";
 
 // Importo as cores e variáveis do meu tema global
 import { theme } from "./src/theme/theme";
@@ -317,30 +316,11 @@ function MuralContent({ userName, onLogout }: MuralContentProps) {
 }
 
 // Aqui eu exporto o componente App encapsulando tudo dentro do SafeAreaProvider
-// Aqui eu controlo se o usuário está logado ou não
+// A tela de login foi removida: o mural de perfil agora abre direto
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
-
-  // Aqui eu trato o login bem-sucedido
-  const handleLoginSuccess = (name: string) => {
-    setUserName(name);
-    setIsLoggedIn(true);
-  };
-
-  // Aqui eu trato o logout
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUserName("");
-  };
-
   return (
     <SafeAreaProvider>
-      {isLoggedIn ? (
-        <MuralContent userName={userName} onLogout={handleLogout} />
-      ) : (
-        <AuthScreen onLoginSuccess={handleLoginSuccess} />
-      )}
+      <MuralContent userName="Marina Costa" onLogout={() => {}} />
     </SafeAreaProvider>
   );
 }
