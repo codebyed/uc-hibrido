@@ -36,3 +36,14 @@ uc-hibrido/
 - ESLint configured for code quality
 - Metro bundler for fast development
 - Expo Router for navigation (where applicable)
+
+## [1.1.0] - 2026-11-27
+
+### Fixed
+- **Git repository flattening**: Converted embedded git subrepositories (`fixacao`, `outros`, `projeto`, `y`) into tracked directories, resolving 404 errors when accessing those paths on GitHub Pages
+
+### Changed
+- **Mural de Perfil (app y)**: Removed login screen; app now opens directly to the profile view with "Marina Costa" pre-configured
+
+### Added
+- Backup of original git structures preserved in temp directory for rollback if needed
